@@ -1,0 +1,178 @@
+.slider {
+   min-height: 539px;
+   box-shadow: inset 0 6px 0 0 #ffd55c, inset 0 -6px 0 0 #ffd55c;
+   color: #ffffff;
+   background-color: #222020;
+   background-image: url("../images/slider-1.png");
+   background-repeat: no-repeat;
+   background-position: center;
+
+   &__wrapper {
+      max-width: 1030px;
+      margin: 0 auto;
+      padding-top: 132px;
+      padding-right: 15px;
+      padding-bottom: 38px;
+      padding-left: 15px;
+   }
+
+   &__container {
+      max-width: 553px;
+      margin-left: auto;
+      margin-bottom: 86px;
+   }
+
+   &__title {
+      margin-bottom: 8px;
+      font-size: 40px;
+      line-height: 40px;
+      text-transform: uppercase;
+
+      & span {
+         display: block;
+         font-size: 38px;
+      }
+   }
+
+   &__text {
+      margin-bottom: 49px;
+      font-size: 18px;
+      line-height: 22px;
+   }
+
+   &__form {
+      display: flex;
+      justify-content: space-between;
+   }
+
+   &__label {
+      position: relative;
+      margin-bottom: 0;
+
+      & span {
+         font-size: 0;
+      }
+
+      &::before {
+         content: "";
+         position: absolute;
+         top: 50%;
+         right: -335px;
+         width: 22px;
+         height: 15px;
+         background-image: url("../images/email.png");
+         transform: translateY(-50%);
+      }
+   }
+
+   &__input {
+      width: 332px;
+      height: 50px;
+      border: none;
+      padding: 13px 40px 13px 16px;
+      font-weight: 300;
+      font-size: 14px;
+      color: #cbcbcb;
+      box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.11);
+
+      &:hover,
+      &:focus {
+         outline: none;
+         box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.3);
+      }
+   }
+
+   &__btn {
+      width: 189px;
+      height: 50px;
+      padding: 13px 0;
+      font-size: 16px;
+      color: #ffffff;
+      text-align: center;
+      border: none;
+      border-radius: 5px;
+      box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0.15),
+         0 0 0 4px rgba(0, 0, 0, 0.11);
+      background-image: linear-gradient(0deg, #f27935, #f2b235);
+
+      &:hover,
+      &:focus {
+         color: #ffffff;
+         text-decoration: none;
+         box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0.3),
+            0 0 0 4px rgba(0, 0, 0, 0.3);
+      }
+   }
+
+   &__pagination {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      width: 105px;
+      margin: 0 auto;
+
+      & input {
+         position: absolute;
+         visibility: hidden;
+         width: 1px;
+         height: 1px;
+         clip: rect(0, 0, 0, 0);
+      }
+   }
+
+   &__indicator {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 16px;
+      height: 16px;
+      margin-bottom: 0;
+      border-radius: 50%;
+      background-color: #ffffff;
+      cursor: pointer;
+
+      &::before {
+         content: "";
+         position: absolute;
+         display: none;
+         width: 10px;
+         height: 10px;
+         border-radius: 50%;
+         background-color: #913d88;
+      }
+   }
+
+   #slider-1:checked ~ .slider__indicator[for="slider-1"]::before,
+   #slider-2:checked ~ .slider__indicator[for="slider-2"]::before,
+   #slider-3:checked ~ .slider__indicator[for="slider-3"]::before,
+   #slider-4:checked ~ .slider__indicator[for="slider-4"]::before,
+   #slider-5:checked ~ .slider__indicator[for="slider-5"]::before {
+      display: flex;
+   }
+}
+
+@media (max-width: 768px) {
+   .slider {
+      background-size: cover;
+
+      &__form {
+         flex-wrap: wrap;
+      }
+
+      &__label {
+         &::before {
+            display: none;
+         }
+      }
+
+      &__input {
+         width: 100%;
+         margin-bottom: 20px;
+      }
+
+      &__btn {
+         width: 100%;
+      }
+   }
+}
